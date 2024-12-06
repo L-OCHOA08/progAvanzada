@@ -1,0 +1,104 @@
+*{
+    margin: 0;
+}
+
+body{
+    background-color: #222;
+}
+
+header{
+    width: 100%;
+    height: 10vh;
+    background: #800000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-title{
+    font-size: 30px;
+    font-family: 'Manrope', sans-serif;
+    text-transform: uppercase;
+    margin-left: 20px;
+    color: #DAD4B5;
+    text-align: center;
+}
+
+.titulo-admin{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+h2, label, button, table, a{
+    color: #fff;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    width: 70%;
+    margin: auto;
+    margin-top: 3rem;
+}
+
+.form-group{
+    display: flex;
+    flex-direction: column;
+}
+
+input[type='text']{
+    padding: 10px 15px;
+    border-radius: 50px;
+    border: none;width: 50vw;
+    font-size: 20px;
+}
+
+label{
+    color: #ddd;
+    font-size: 18px;
+}
+
+#tabla-admin{
+    margin: auto;
+    margin-top: 5rem;
+    border: double green 10px;
+    color: #fff;
+    border-radius: 10px;
+}
+
+td{
+    border: solid #800000 3px;
+    padding: 5px;
+    text-align: center;
+}
+
+.botones{
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.btn-info{
+    padding: 10px 15px;
+    background-color: green;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+}
+
+a{
+    text-decoration: none;
+    background-color: #800000;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 700;
+}

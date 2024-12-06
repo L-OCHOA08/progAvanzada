@@ -8,13 +8,18 @@
     $conexion = mysqli_connect("localhost", "root", "", "proyectoprueba");
 
     $consulta="SELECT * FROM usuario WHERE Nombre='$userLog' or Correo='$userLog' and Contraseña='$userPassw'";
+    $consulta2="SELECT * FROM admin WHERE Nombre='$userLog' or Correo='$userLog' and Contraseña='$userPassw'";
     $resultado=mysqli_query($conexion,$consulta);
+    $resultado2=mysqli_query($conexion, $consulta2);
 
+    $filas2 = mysqli_num_rows($resultado2);
     $filas = mysqli_num_rows($resultado);
 
-    if ($filas) {
+    if ($filas2) {
+        header("location:admin.php");
+    } else if ($filas) {
         header("location:inicio.html");
-    }else {
+    } else {
         ?>
         <div class="error-content">
             <h1>CORREO O CONTRASEÑA INCORRECTA.</h1>

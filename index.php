@@ -11,42 +11,52 @@
     <form action="" method="post">
         <h1>Registrarme</h1>
         <div class="alert">
-            <?php
+        <?php
             if (isset($_POST['name'])) {
                 $name = $_REQUEST['name'];
                 $email = $_REQUEST['email'];
                 $password = $_REQUEST['passw'];
                 $passwordC = $_REQUEST['passwC'];
 
-                $campos = array();
+                // Defini credenciales de admin
+                $adminUser  = "admin";
+                $adminPass = "admin123";
 
-                if ($name == "") {
-                    array_push($campos, "Necesitas agregar tu nombre para continuar.");
-                }
-
-                if ($email == "" || strpos($email, "@") === false) {
-                    array_push($campos, "Ingrese un email válido.");
-                }
-
-                if ($password == "" || strlen($password) < 6 || strpos($password, "@") === false) {
-                    array_push($campos, 'Su contraseña debe tener al menos 6 carácteres y un signo especial. Ejemplo: "@".');
-                }
-
-                if ($passwordC == "" || $passwordC != $password) {
-                    array_push($campos, "Sus contraseñas no coinciden.");
-                }
-
-                if (count($campos) > 0) {
-                    echo "<div class='error' style='height: auto; background: #d90000; padding: .5rem; width: 80%; border-radius: 20px; text-align: center; margin-bottom: 1rem; display: flex; flex-direction: column; align-items: center; justify-content: center; margin:auto; margin-bottom: 1rem;'>";
-                    for ($i = 0; $i < count($campos); $i++) {
-                        echo "<li style='list-style: none; color: #fff';>" . $campos[$i];
-                    }
-                    echo "</div>";
+                // Verificar si se ingresan las credenciales de admin
+                if ($name === $adminUser  && $password === $adminPass) {
+                    echo "<div class='success' style='color: green;'>¡Has iniciado sesión como admin!</div>";
+                    header("Location: admin.php");
+                    exit();
                 } else {
-                    include("abrircone.php");
+                    $campos = array();
+
+                    if ($name == "") {
+                        array_push($campos, "Necesitas agregar tu nombre para continuar.");
+                    }
+
+                    if ($email == "" || strpos($email, "@") === false) {
+                        array_push($campos, "Ingrese un email válido.");
+                    }
+
+                    if ($password == "" || strlen($password) < 6 || strpos($password, "@") === false) {
+                        array_push($campos, 'Su contraseña debe tener al menos 6 carácteres y un signo especial. Ejemplo: "@".');
+                    }
+
+                    if ($passwordC == "" || $passwordC != $password) {
+                        array_push($campos, "Sus contraseñas no coinciden.");
+                    }
+
+                    if (count($campos) > 0) {
+                        echo "<div class='error' style='height: auto; background: #d90000; padding: .5rem; width: 80%; border-radius: 20px; text-align: center; margin-bottom: 1rem; display: flex; flex-direction: column; align-items: center; justify-content: center; margin:auto; margin-bottom: 1rem;'>";
+                        for ($i = 0; $i < count($campos); $i++) {
+                            echo "<li style='list-style: none; color: #fff';>" . $campos[$i];
+                        }
+                        echo "</div>";
+                    } else {
+                        include("abrircone.php");
+                    }
                 }
             }
-
             ?>
         </div>
         <div class="input-form">
